@@ -9,6 +9,8 @@ public class BlockInstantiator : MonoBehaviour
     private float next_spawn_time;
 
     public float EntranceRate = 5.0f;
+    private int count=0;
+    private List<GameObject> selectorArr;
     //public Transform generationPoint;
 
     //public float distanceBetween;
@@ -49,4 +51,29 @@ public class BlockInstantiator : MonoBehaviour
             Instantiate(theplatforms[platformSelector], transform.position, transform.rotation);
         }*/
     }
+
+   /* private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Sticky"))
+        {
+            //selectorArr = new GameObject[3];
+            selectorArr.Add(collision.gameObject);
+            //selectorArr[count] = collision.gameObject.GetInstanceID();
+            //count = count + 1;
+            //Debug.Log("Hit" + count);
+
+            if (selectorArr.Count == 3)
+            {
+                for (int i =0; i< selectorArr.Count; i++)
+                {
+                    Destroy(selectorArr[i]);
+                }
+                selectorArr = new List<GameObject>(); //reset list
+                //Destroy(prefab);
+            }
+
+
+        }
+    }*/
 }

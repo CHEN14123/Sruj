@@ -7,6 +7,7 @@ public class FlockManager : MonoBehaviour
     public GameObject BoidPrefab;
     public int BoidCount = 20;
     public Vector3 Limits = new Vector3(5, 5, 5);
+    private int count = 0;
 
     [HideInInspector]
     public GameObject[] boids;
@@ -69,6 +70,23 @@ public class FlockManager : MonoBehaviour
         {
             //step 3 update boids
             boids[i].GetComponent<Boid>().BoidUpdate();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Sticky"))
+        {
+            count = count + 1;
+            Debug.Log("Hit" + count);
+            
+            if (count == 3)
+            {
+                
+
+                //Destroy(gameObject);
+            }
         }
     }
 }
